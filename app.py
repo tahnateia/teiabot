@@ -19,7 +19,7 @@ st.markdown(
     f"""
     <style>
         .stApp {{
-            background-image: url("data:image/avif;base64,{background_image_base64}");
+            background-image: url("data:image/jpg;base64,{background_image_base64}");
             background-size: cover;
             background-position: center;
             background-repeat: no-repeat;
@@ -52,7 +52,7 @@ html("""
             const blipClient = new BlipChat()
                 .withAppKey('dGFobmF0ZWlhOjVkZDE2ZWY4LTMyY2QtNGM5Yi1hODU5LWQwNzQxMGJlZmQxZg==')
                 .withButton({
-                    "color":"#4d0d9a",
+                    "color":"#5233c1",
                     "icon":"https://blipmediastore.blip.ai/public-medias/Media_32a3c387-0745-4a33-ad33-2cf194e1aec0",
                     "size": "60px"  // Tamanho do ícone ajustado para maior visibilidade
                 })
@@ -76,7 +76,7 @@ html("""
                     resetButton.style.top = '10px';
                     resetButton.style.right = '10px';
                     resetButton.style.zIndex = '1000';
-                    resetButton.style.backgroundColor = '#4d0d9a';
+                    resetButton.style.backgroundColor = '#5233c1';
                     resetButton.style.color = 'white';
                     resetButton.style.border = 'none';
                     resetButton.style.padding = '10px';
@@ -91,4 +91,4 @@ html("""
         };
     })();
 </script>
-""", height=600, width=1000, scrolling=True)  # Ajuste a altura se necessário
+""", height=600, width=1000, scrolling=True)
