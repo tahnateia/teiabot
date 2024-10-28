@@ -1,6 +1,7 @@
 import streamlit as st
 from streamlit.components.v1 import html
 import base64
+import os
 
 # Configuração da página com título
 st.set_page_config(page_title="tah na teia!")
@@ -10,8 +11,8 @@ def get_base64_image(image_path):
     with open(image_path, "rb") as img_file:
         return base64.b64encode(img_file.read()).decode()
 
-# Defina a imagem de fundo usando base64 para garantir que o Streamlit carregue corretamente
-background_image_path = "tah_na_teia/assets/image.jpg"
+# Defina o caminho relativo da imagem de fundo
+background_image_path = os.path.join(os.path.dirname(__file__), 'assets', 'image.jpg')
 background_image_base64 = get_base64_image(background_image_path)
 
 st.markdown(
@@ -53,7 +54,7 @@ html("""
                 .withButton({
                     "color":"#4d0d9a",
                     "icon":"https://blipmediastore.blip.ai/public-medias/Media_32a3c387-0745-4a33-ad33-2cf194e1aec0",
-                    "size": "100"  // Tamanho do ícone ajustado para maior visibilidade
+                    "size": "60px"  // Tamanho do ícone ajustado para maior visibilidade
                 })
                 .withCustomCommonUrl('https://mayconcipriano-4de7c.chat.blip.ai/')
                 .withCustomStyle(`
@@ -72,7 +73,7 @@ html("""
                     const resetButton = document.createElement('button');
                     resetButton.innerHTML = 'Resetar Conversa';
                     resetButton.style.position = 'absolute';
-                    resetButton.style.top = '100px';
+                    resetButton.style.top = '10px';
                     resetButton.style.right = '10px';
                     resetButton.style.zIndex = '1000';
                     resetButton.style.backgroundColor = '#4d0d9a';
