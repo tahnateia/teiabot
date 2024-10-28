@@ -45,50 +45,16 @@ st.markdown('<div class="title">tah na teia!</div>', unsafe_allow_html=True)
 
 # Insira o script do Blip Chat com função de reset e janela maximizada
 html("""
-<script src="https://unpkg.com/blip-chat-widget" type="text/javascript"></script>
 <script>
-    (function () {
-        window.onload = function () {
-            const blipClient = new BlipChat()
-                .withAppKey('dGFobmF0ZWlhOjVkZDE2ZWY4LTMyY2QtNGM5Yi1hODU5LWQwNzQxMGJlZmQxZg==')
-                .withButton({
-                    "color":"#5233c1",
-                    "icon":"https://blipmediastore.blip.ai/public-medias/Media_32a3c387-0745-4a33-ad33-2cf194e1aec0",
-                    "size": "60px"  // Tamanho do ícone ajustado para maior visibilidade
-                })
-                .withCustomCommonUrl('https://mayconcipriano-4de7c.chat.blip.ai/')
-                .withCustomStyle(`
-                    .blip-chat-container {
-                        width: 100vw;
-                        height: 90vh;
-                        max-width: 100%;
-                        max-height: 100%;
-                    }
-                `)
-                .withEventHandler(BlipChat.LOAD_EVENT, function () {
-                    blipClient.widget.open();  // Abre a janela maximizada ao clicar
-                })
-                .withEventHandler(BlipChat.OPEN_EVENT, function () {
-                    // Adiciona botão para resetar a conversa
-                    const resetButton = document.createElement('button');
-                    resetButton.innerHTML = 'Resetar Conversa';
-                    resetButton.style.position = 'absolute';
-                    resetButton.style.top = '10px';
-                    resetButton.style.right = '10px';
-                    resetButton.style.zIndex = '1000';
-                    resetButton.style.backgroundColor = '#5233c1';
-                    resetButton.style.color = 'white';
-                    resetButton.style.border = 'none';
-                    resetButton.style.padding = '10px';
-                    resetButton.style.borderRadius = '5px';
-                    resetButton.style.cursor = 'pointer';
-                    resetButton.onclick = function () {
-                        blipClient.widget._resetChat();
-                    };
-                    document.querySelector('.blip-chat-container').appendChild(resetButton);
-                })
-                .build();
-        };
-    })();
+window.embeddedChatbotConfig = {
+chatbotId: "Q5GlC0cLhsUWSsi2n3_F1",
+domain: "www.chatbase.co"
+}
+</script>
+<script
+src="https://www.chatbase.co/embed.min.js"
+chatbotId="Q5GlC0cLhsUWSsi2n3_F1"
+domain="www.chatbase.co"
+defer>
 </script>
 """, height=600, width=1000, scrolling=True)
