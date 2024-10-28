@@ -15,6 +15,7 @@ def get_base64_image(image_path):
 background_image_path = os.path.join(os.path.dirname(__file__), 'assets', 'image.jpg')
 background_image_base64 = get_base64_image(background_image_path)
 
+# CSS para o fundo e o título centralizado
 st.markdown(
     f"""
     <style>
@@ -40,21 +41,26 @@ st.markdown(
     unsafe_allow_html=True
 )
 
-# Insira o título centralizado
+# Insere o título centralizado
 st.markdown('<div class="title">tah na teia!</div>', unsafe_allow_html=True)
 
-# Insira o script do Blip Chat com função de reset e janela maximizada
-html("""
+# Função JavaScript para maximizar o Blip Chat e monitorar o botão de reset
+maximized_chat_script = """<script src="https://unpkg.com/blip-chat-widget" type="text/javascript"></script>
 <script>
-window.embeddedChatbotConfig = {
-chatbotId: "Q5GlC0cLhsUWSsi2n3_F1",
-domain: "www.chatbase.co"
-}
+    (function () {
+        window.onload = function () {
+            new BlipChat()
+                .withAppKey('dGFobmF0ZWlhOjVkZDE2ZWY4LTMyY2QtNGM5Yi1hODU5LWQwNzQxMGJlZmQxZg==')
+                .withButton({"color":"#5233c1","icon":"https://blipmediastore.blip.ai/public-medias/Media_32a3c387-0745-4a33-ad33-2cf194e1aec0"})
+                .withCustomCommonUrl('https://mayconcipriano-4de7c.chat.blip.ai/')
+                .build();
+        }
+    })();
 </script>
-<script
-src="https://www.chatbase.co/embed.min.js"
-chatbotId="Q5GlC0cLhsUWSsi2n3_F1"
-domain="www.chatbase.co"
-defer>
-</script>
-""", height=600, width=1000, scrolling=True)
+            
+            
+            
+"""
+
+# Renderiza o HTML e JavaScript
+html(maximized_chat_script, height=600, width=1000, scrolling=True)
